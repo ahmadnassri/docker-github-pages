@@ -1,0 +1,58 @@
+name: semantic release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.semantic.outputs.version }}
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: setup node.js
+        uses: actions/setup-node@v1
+
+      - name: install semantic-release
+        run: npm install --global semantic-release @semantic-release/exec
+
+      - name: run semantic-release
+        id: semantic
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish:
+    needs: tag
+    if: needs.tag.outputs.version
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        docker: 
+          - name: docker hub
+            registry: registry.hub.docker.com
+            password: DOCKER_PASSWORD
+            repository: ahmadnassri/github-pages
+          
+          - name: github package registry
+            password: GITHUB_TOKEN
+            registry: docker.pkg.github.com
+            repository: ahmadnassri/docker-github-pages/main
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: ${{ matrix.docker.name }}
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets[matrix.docker.password] }}
+          registry: ${{ matrix.docker.registry }}
+          repository: ${{ matrix.docker.repository }}
+          tags: latest, ${{ needs.tag.outputs.version }}
+  
