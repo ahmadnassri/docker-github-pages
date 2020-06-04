@@ -9,6 +9,10 @@ WORKDIR /site
 RUN apk --no-cache add build-base
 RUN echo "gem: --no-ri --no-rdoc" > ~/.gemrc
 RUN gem install github-pages
+RUN jekyll-redirect-from
+RUN jekyll-seo-tag
+RUN jekyll-sitemap
+RUN jekyll-feed
 
 ENTRYPOINT ["jekyll"]
 CMD ["serve", "--host", "0.0.0.0", "--livereload"]
