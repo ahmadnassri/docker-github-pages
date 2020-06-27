@@ -13,6 +13,7 @@ RUN gem install jekyll-redirect-from
 RUN gem install jekyll-seo-tag
 RUN gem install jekyll-sitemap
 RUN gem install jekyll-feed
+RUN gem install jekyll-github-metadata
 
 ENTRYPOINT ["jekyll"]
 CMD ["serve", "--host", "0.0.0.0", "--livereload"]
