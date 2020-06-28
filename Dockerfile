@@ -6,20 +6,17 @@ LABEL maintainer="Ahmad Nassri <ahmad@ahmadnassri.com>"
 VOLUME /site
 WORKDIR /site
 
-RUN apk --no-cache add build-base
-RUN echo "gem: --no-ri --no-rdoc" > ~/.gemrc
-RUN gem install github-pages
-RUN gem install jekyll-redirect-from
-RUN gem install jekyll-seo-tag
-RUN gem install jekyll-sitemap
-RUN gem install jekyll-feed
-RUN gem install jekyll-github-metadata
+RUN apk --no-cache add build-base git
+
+RUN gem install --no-document github-pages
+
+RUN rm -rf /usr/lib/ruby/gems/*/cache/*.gem
+
+EXPOSE 4000
+EXPOSE 35729
 
 ENTRYPOINT ["jekyll"]
-CMD ["serve", "--host", "0.0.0.0", "--livereload"]
+CMD ["serve", "--host", "0.0.0.0", "--livereload", "--incremental"]
 
 # TODO: make SSL work with volumes
 # CMD ["serve", "--host", "0.0.0.0", "--livereload", "--ssl-key", "ssl/localhost.key", "--ssl-cert", "ssl/localhost.crt"]
-
-EXPOSE 35729
-EXPOSE 4000
