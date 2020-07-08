@@ -16,7 +16,7 @@ EXPOSE 4000
 EXPOSE 35729
 
 ENTRYPOINT ["jekyll"]
-CMD ["serve", "--host", "0.0.0.0", "--livereload", "--incremental"]
+CMD ["serve", "--host", "0.0.0.0", "--livereload"]
 
 # TODO: make SSL work with volumes
 # CMD ["serve", "--host", "0.0.0.0", "--livereload", "--ssl-key", "ssl/localhost.key", "--ssl-cert", "ssl/localhost.crt"]
