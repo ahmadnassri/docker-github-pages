@@ -8,8 +8,10 @@ WORKDIR /site
 
 RUN apk --no-cache add build-base git
 
-RUN gem install --no-document github-pages
+COPY Gemfile .
+RUN gem install -g
 
+RUN apk del build-base git
 RUN rm -rf /usr/lib/ruby/gems/*/cache/*.gem
 
 EXPOSE 4000
