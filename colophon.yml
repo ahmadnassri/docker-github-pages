@@ -1,0 +1,8 @@
+version: 2.0
+
+id: github-pages
+
+about:
+  title: GitHub Pages Jekyll Container
+  description: a Jekyll container with all the officially included plugins so you can run locally.
+  repository: ahmadnassri/docker-github-pages
