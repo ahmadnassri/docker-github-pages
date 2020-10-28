@@ -6,6 +6,7 @@ a Jekyll container with all the officially included plugins so you can run local
 [![release][release-img]][release-url]
 [![super linter][super-linter-img]][super-linter-url]
 [![semantic][semantic-img]][semantic-url]
+
 [![size][size-img]][size-url]
 [![docker][docker-img]][docker-url]
 [![github][github-img]][github-url]
