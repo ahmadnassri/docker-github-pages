@@ -70,5 +70,5 @@ services:
 [docker-url]: https://hub.docker.com/r/ahmadnassri/github-pages
 [docker-img]: https://badgen.net/badge/icon/docker%20hub?icon=docker&label
 
-[github-url]: https://github.com/users/ahmadnassri/packages/container/package/docker-github-pages
+[github-url]: https://github.com/users/ahmadnassri/packages/container/package/github-pages
 [github-img]: https://badgen.net/badge/icon/github%20registry?icon=github&label
