@@ -74,9 +74,3 @@ jobs:
             org.opencontainers.image.version=${{ needs.release.outputs.release-version }}
             org.opencontainers.image.source=${{ github.event.repository.clone_url }}
             org.opencontainers.image.revision=${{ github.sha }}
-
-      - uses: peter-evans/dockerhub-description@v2
-        with:
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.DOCKER_TOKEN }}
-          repository: ${{ github.repository_owner	}}/${{ steps.hub.outputs.name }}
