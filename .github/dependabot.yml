@@ -2,6 +2,12 @@ version: 2
 updates:
   - package-ecosystem: npm
     open-pull-requests-limit: 10
-    directory: /action
+    directory: /
+    schedule:
+      interval: daily
+
+  - package-ecosystem: bundler
+    open-pull-requests-limit: 10
+    directory: /
     schedule:
       interval: daily
