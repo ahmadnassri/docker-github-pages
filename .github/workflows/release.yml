@@ -21,7 +21,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-
   publish:
     needs: release
 
@@ -56,8 +55,6 @@ jobs:
       - id: hub
         run: echo "::set-output name=name::$(basename ${GITHUB_REPOSITORY/docker-//})"
 
-      - run: echo "${{ steps.hub.outputs.name }}"
-
       # publish
       - uses: docker/build-push-action@v2
         with:
@@ -65,9 +62,9 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
           tags: |
-            ${{ steps.hub.outputs.name }}:latest
-            ${{ steps.hub.outputs.name }}:${{ needs.release.outputs.release-version-major }}
-            ${{ steps.hub.outputs.name }}:${{ needs.release.outputs.release-version }}
+            ${{ github.repository_owner }}/${{ steps.hub.outputs.name }}:latest
+            ${{ github.repository_owner }}/${{ steps.hub.outputs.name }}:${{ needs.release.outputs.release-version-major }}
+            ${{ github.repository_owner }}/${{ steps.hub.outputs.name }}:${{ needs.release.outputs.release-version }}
             ghcr.io/${{ github.event.repository.full_name }}:latest
             ghcr.io/${{ github.event.repository.full_name }}:${{ needs.release.outputs.release-version-major }}
             ghcr.io/${{ github.event.repository.full_name }}:${{ needs.release.outputs.release-version }}
