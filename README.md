@@ -15,7 +15,7 @@ a Jekyll container with all the officially included plugins so you can run local
 
 ### Included plugins:
 
-Includes the same plugins as the ones [included with GitHub Pages](https://help.github.com/en/github/working-with-github-pages/about-github-pages-and-jekyll#plugins):
+Includes the same plugins as the ones [included with GitHub Pages][]:
 
 -   `jekyll-coffeescript`
 -   `jekyll-default-layout`
@@ -47,6 +47,8 @@ services:
 > #### Volumes
 >
 > Map the the directory where Jekyll will read files to `/site`
+
+  [included with GitHub Pages]: https://help.github.com/en/github/working-with-github-pages/about-github-pages-and-jekyll#plugins
 
 ----
 > Author: [Ahmad Nassri](https://www.ahmadnassri.com/) &bull;
