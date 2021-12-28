@@ -1,4 +1,4 @@
-FROM ruby:2.7.2-alpine
+FROM ruby:3.1.0-alpine
 
 LABEL name="jekyll"
 LABEL maintainer="Ahmad Nassri <ahmad@ahmadnassri.com>"
