@@ -1,7 +1,8 @@
 {
+  "name": ["github-pages"],
   "platforms": ["linux/amd64,linux/arm64,linux/arm/v7"],
-  "include": [
-    { "id": "GITHUB", "registry": "ghcr.io" },
-    { "id": "DOCKERHUB", "registry": "docker.io" }
+  "registry": [
+    { "id": "GITHUB", "url": "ghcr.io" },
+    { "id": "DOCKERHUB", "url": "docker.io" }
   ]
 }
