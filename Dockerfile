@@ -1,6 +1,6 @@
 # kics-scan disable=67fd0c4a-68cf-46d7-8c41-bc9fba7e40ae
 
-FROM ruby:2.7.2-alpine
+FROM ruby:2.7.7-alpine
 
 LABEL name="jekyll"
 LABEL maintainer="Ahmad Nassri <ahmad@ahmadnassri.com>"
@@ -8,7 +8,7 @@ LABEL maintainer="Ahmad Nassri <ahmad@ahmadnassri.com>"
 VOLUME /site
 WORKDIR /site
 
-RUN apk --no-cache add build-base=0.5-r3 git=2.40.1-r0
+RUN apk --no-cache add build-base=0.5-r3 git=2.36.6-r0
 
 COPY Gemfile .
 RUN gem install -g
