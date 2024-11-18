@@ -1,0 +1,8 @@
+{
+  "name": "github-pages",
+  "platforms": "linux/amd64",
+  "registries": [
+    "ghcr.io",
+    "docker.io"
+  ]
+}
