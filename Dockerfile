@@ -1,6 +1,6 @@
 # kics-scan disable=67fd0c4a-68cf-46d7-8c41-bc9fba7e40ae
 
-FROM ruby:3.4.8-alpine
+FROM ruby:4.0.0-alpine
 
 LABEL name="jekyll"
 LABEL maintainer="Ahmad Nassri <ahmad@ahmadnassri.com>"
